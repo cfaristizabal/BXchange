@@ -1,6 +1,7 @@
 <h1>Your Books to Xchange</h1>
 <%= link_to 'Add book', new_book_path %>
 </br>
+</br>
 <table>
   <tr>
     <th>Fecha</th>
@@ -12,7 +13,7 @@
 
   <% @book.each do |book| %>
     <tr>
-      <th><%= book.updated_at %></th>
+      <th><%= book.updated_at.strftime("%Y-%m-%d") %></th>
       <th><%= book.name %></th>
       <th><%= book.author %></th>
       <th><%= book.descrption %></th>
