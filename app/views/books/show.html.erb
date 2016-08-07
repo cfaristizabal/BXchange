@@ -1,6 +1,6 @@
 <p>
   <strong>Upload:</strong>
-  <%= @book.updated_at %>
+  <%= @book.updated_at.strftime("%Y-%m-%d") %>
 </p>
 <p>
   <strong>Nombre:</strong>
@@ -11,7 +11,7 @@
   <%= @book.author %>
 </p>
 <p>
-  <%= @book.imagen %>
+  <%= image_tag @book.image.url(:medium) %>
 </p>
 <p>
   <strong>Descripción:</strong>

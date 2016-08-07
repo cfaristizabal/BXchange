@@ -22,7 +22,7 @@ class BooksController < ApplicationController
     if @book.save
       redirect_to @book
     else
-      rander 'new'
+      render 'new'
     end
   end
 
@@ -45,6 +45,6 @@ class BooksController < ApplicationController
 
   private
     def book_params
-      params.require(:book).permit(:name, :author, :descrption, :imagen )
+      params.require(:book).permit(:name, :author, :descrption, :image)
     end
 end

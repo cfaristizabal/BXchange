@@ -13,15 +13,15 @@
 
   <% @book.each do |book| %>
     <tr>
-      <th><%= book.updated_at.strftime("%Y-%m-%d") %></th>
-      <th><%= book.name %></th>
-      <th><%= book.author %></th>
-      <th><%= book.descrption %></th>
-      <th><%= book.imagen %></th>
+      <td><%= book.updated_at.strftime("%Y-%m-%d") %></td>
+      <td><%= book.name %></td>
+      <td><%= book.author %></td>
+      <td><%= book.descrption %></td>
+      <td><%= image_tag book.image.url(:thumb) %></td>
       <td><%= link_to 'Show', book_path(book) %></td>
       <td><%= link_to 'Edit', edit_book_path(book) %></td>
       <td><%= link_to 'Destroy', book_path(book), method: :delete, data: { confirm: "are you sure?"} %></td>
-  </tr>
+    </tr>
   <%end%>
 
 </table>
