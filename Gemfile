@@ -35,6 +35,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 #Use paperclip for upload images
 gem 'paperclip', '~> 5.0.0'
+gem 'devise'
 
 
 group :development, :test do
