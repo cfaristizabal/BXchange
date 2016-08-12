@@ -1,0 +1,27 @@
+<h1>Your Books to Xchange</h1>
+<%= link_to 'Add book', new_book_path %>
+</br>
+</br>
+<table>
+  <tr>
+    <th>Fecha</th>
+    <th>Nombre</th>
+    <th>Autor</th>
+    <th>Descripción</th>
+    <th>Imagen</th>
+  </tr>
+
+  <% @book.each do |book| %>
+    <tr>
+      <td><%= book.updated_at.strftime("%Y-%m-%d") %></td>
+      <td><%= book.name %></td>
+      <td><%= book.author %></td>
+      <td><%= book.descrption %></td>
+      <td><%= image_tag book.image.url(:thumb) %></td>
+      <td><%= link_to 'Show', book_path(book) %></td>
+      <td><%= link_to 'Edit', edit_book_path(book) %></td>
+      <td><%= link_to 'Destroy', book_path(book), method: :delete, data: { confirm: "are you sure?"} %></td>
+    </tr>
+  <%end%>
+
+</table>
