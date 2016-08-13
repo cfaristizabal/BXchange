@@ -5,6 +5,7 @@
 <table>
   <tr>
     <th>Fecha</th>
+    <th>Usuario</th>
     <th>Nombre</th>
     <th>Autor</th>
     <th>Descripción</th>
@@ -14,6 +15,7 @@
   <% @book.each do |book| %>
     <tr>
       <td><%= book.updated_at.strftime("%Y-%m-%d") %></td>
+      <td><%= user.name[book.user_id] %></td>
       <td><%= book.name %></td>
       <td><%= book.author %></td>
       <td><%= book.descrption %></td>
