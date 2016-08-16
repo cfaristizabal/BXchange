@@ -72,7 +72,6 @@ a:focus {
  font-size: 20;
 }
 
-
 /*bootstrap modifications*/
 
 .light {
@@ -338,4 +337,11 @@ img::-moz-selection {
 }
 body {
   webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
+}
+
+.boton{
+  font-size: 50;
+  border: 1px black;
+  color: purple;
+  
 }

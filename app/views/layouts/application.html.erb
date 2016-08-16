@@ -37,21 +37,24 @@
               <li class="hidden">
                   <a href="#page-top"></a>
               </li>
-              <li>
-                <%= link_to 'About', pages_about_path %> 
-              </li>
               <!-- Esto es para hacer el SIGN UP y LOG IN-->
               <% if user_signed_in? %>
                 <li>
-                  <%= link_to 'Edit profile', edit_user_registration_path %> 
-                </li>
-                <li>
-                  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+                  <%= link_to 'Edit account', edit_user_registration_path %> 
                 </li>
                 <li>
                   <%= link_to "My Profile", dashboard_path %>
                 </li>
+                <li>
+                  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+                </li>
               <% else %>
+              <li>
+                <%= link_to 'About', pages_about_path %> 
+              </li>
+              <li>
+                  <a class="page-scroll" href="#contact">Contact</a>
+              </li>
                 <li>
                   <%= link_to "Sign up", new_user_registration_path %> 
                 </li>
@@ -59,9 +62,6 @@
                   <%= link_to "Log in", new_user_session_path %>
                 </li>
               <% end %>
-              </li>
-              <li>
-                  <a class="page-scroll" href="#contact">Contact</a>
               </li>
           </ul>
         </div>
