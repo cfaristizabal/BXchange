@@ -2,28 +2,40 @@
 <%= link_to 'Add book', new_book_path %>
 </br>
 </br>
-<table>
-  <tr>
-    <th>Fecha</th>
-    <th>Usuario</th>
-    <th>Nombre</th>
-    <th>Autor</th>
-    <th>Descripción</th>
-    <th>Imagen</th>
-  </tr>
 
+
+<!--<% @book.each do |book| %>
+  <div class="card">
+    <div class="card-block">
+      <h4 class="card-title"><%= book.name %></h4>
+      <h6 class="card-subtitle text-muted"><%= book.author %></h6>
+    </div>
+    <%= image_tag book.image.url(:thumb), alt: "card image" %>
+    <div class="card-block">
+      <p class="card-text"><%= book.descrption %></p>
+      <p class="card-text"><%= book.user_id %></p>
+      <p class="card-text"><%= book.updated_at.strftime("%Y-%m-%d") %></p>
+      <%= link_to 'Show', book_path(book) %>
+      <%= link_to 'Edit', edit_book_path(book) %>
+      <%= link_to 'Destroy', book_path(book), method: :delete, data: { confirm: "are you sure?"} %>
+    </div>
+  </div>
+<%end%>-->
+
+<div class="row">
   <% @book.each do |book| %>
-    <tr>
-      <td><%= book.updated_at.strftime("%Y-%m-%d") %></td>
-      <td><%= book.user_id %></td>
-      <td><%= book.name %></td>
-      <td><%= book.author %></td>
-      <td><%= book.descrption %></td>
-      <td><%= image_tag book.image.url(:thumb) %></td>
-      <td><%= link_to 'Show', book_path(book) %></td>
-      <td><%= link_to 'Edit', edit_book_path(book) %></td>
-      <td><%= link_to 'Destroy', book_path(book), method: :delete, data: { confirm: "are you sure?"} %></td>
-    </tr>
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <%= image_tag book.image.url(:thumb) %>
+      <div class="caption">
+        <h4><%= book.name %></h4>
+        <h5><%= book.author %></h5>
+        <p><%= book.descrption %></p>
+        <p>
+        <a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a>
+        </p>
+      </div>
+    </div>
+  </div>
   <%end%>
-
-</table>
+</div>
