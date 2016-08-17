@@ -1,41 +1,27 @@
-<h1>Your Books to Xchange</h1>
-<%= link_to 'Add book', new_book_path %>
-</br>
-</br>
+ <div class = "borde">
+  <h1>Your Books to Xchange</h1>
+  <%= link_to 'Add book', new_book_path %>
+  </br>
+  </br>
 
-
-<!--<% @book.each do |book| %>
-  <div class="card">
-    <div class="card-block">
-      <h4 class="card-title"><%= book.name %></h4>
-      <h6 class="card-subtitle text-muted"><%= book.author %></h6>
-    </div>
-    <%= image_tag book.image.url(:thumb), alt: "card image" %>
-    <div class="card-block">
-      <p class="card-text"><%= book.descrption %></p>
-      <p class="card-text"><%= book.user_id %></p>
-      <p class="card-text"><%= book.updated_at.strftime("%Y-%m-%d") %></p>
-      <%= link_to 'Show', book_path(book) %>
-      <%= link_to 'Edit', edit_book_path(book) %>
-      <%= link_to 'Destroy', book_path(book), method: :delete, data: { confirm: "are you sure?"} %>
-    </div>
-  </div>
-<%end%>-->
-
-<div class="row">
-  <% @book.each do |book| %>
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <%= image_tag book.image.url(:thumb) %>
-      <div class="caption">
-        <h4><%= book.name %></h4>
-        <h5><%= book.author %></h5>
-        <p><%= book.descrption %></p>
-        <p>
-        <a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a>
-        </p>
+  <div class="row">
+    <% @book.each do |book| %>
+    <div class="col-sm-6 col-md-2">
+      <div class="thumbnail">
+        <%= image_tag book.image.url(:medium) %>
+        <div class="caption">
+          <h4><%= book.name %></h4>
+          <h5><%= book.author %></h5>
+          <h5><%= book.user.name %></h5>
+          <p><%= book.descrption %></p>
+          <p>
+          <%= link_to 'Show', book_path(book), class: "btn btn-primary", role: "button" %>
+          <%= link_to 'Edit', edit_book_path(book), class: "btn btn-primary", role: "button" %>
+          <%= link_to 'Destroy', book_path(book), method: :delete, data: { confirm: "are you sure?"}, class: "btn btn-primary", role: "button" %>
+          </p>
+        </div>
       </div>
     </div>
+    <%end%>
   </div>
-  <%end%>
 </div>
