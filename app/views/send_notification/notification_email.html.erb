@@ -4,9 +4,11 @@
   <meta content='text/html; charset="utf-8' http-equiv='Content-Type' />
 </head>
   <body>
-    <h1>Hi <%= @user.name %></h1>
+    <h1>Hi <%= @book.user.name %></h1>
     <p>
       This emails is just a proof. I hope this work.
+      El correo de <%= @user.name%> es <%= @user.email%>
+
     </p>
   </body>
 </html>

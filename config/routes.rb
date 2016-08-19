@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'pages/home'
 
+  root 'pages#home'
+  get 'pages/home'
   get 'pages/about'
+
   get 'dashboard' => 'dashboard#dashboard'
 
 
@@ -10,7 +12,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'pages#home'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -20,7 +22,7 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :books
-
+  get 'xchange', to: 'books#xchange'
   # Example resource route with options:
   #   resources :products do
   #     member do

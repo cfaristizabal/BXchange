@@ -47,6 +47,12 @@ class BooksController < ApplicationController
     @book=current_user.books
   end
 
+  def xchange
+    @book = Book.find(params[:id])
+    SendNotification.notification_email(@book,current_user)
+      redirect_to @book, notice: 'Email was successfully sent. Wait for an answer. '
+  end
+
   private
     def book_params
       params.require(:book).permit(:name, :author, :descrption, :image)
