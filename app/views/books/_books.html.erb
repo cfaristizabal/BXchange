@@ -17,7 +17,7 @@
           <%= link_to 'Show', book_path(book), class: "btn btn-primary", role: "button" %>
           <%= link_to 'Edit', edit_book_path(book), class: "btn btn-primary", role: "button" %>
           <%= link_to 'Destroy', book_path(book), method: :delete, data: { confirm: "are you sure?"}, class: "btn btn-primary", role: "button" %>
-          <%= link_to 'Xchange', xchange_path(book), class: "btn btn-primary", role: "button" %>
+          <%= link_to 'Xchange', xchange_send_email_path, class: "btn btn-primary", role: "button" %>
           </p>
         </div>
       </div>
@@ -25,3 +25,5 @@
     <%end%>
   </div>
 </div>
+
+<!--:controller => "books", :action => "xchange_send_email", :id => @book.id-->

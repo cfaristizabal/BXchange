@@ -6,7 +6,8 @@ class BooksController < ApplicationController
   end
 
   def show
-
+    @user= current_user
+    puts "#{@user.to_json}"
   end
 
   def new
@@ -48,9 +49,9 @@ class BooksController < ApplicationController
     @book=current_user.books
   end
 
-  def xchange
-
-    SendNotification.notification_email(@book,current_user).deliver
+  def xchange_send_email
+    @user= current_user
+    UserMailer.notification_email(@book,@user).deliver
     redirect_to @book, notice: 'Email was successfully sent. Wait for an answer. '
   end
 
