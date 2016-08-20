@@ -50,7 +50,7 @@ class BooksController < ApplicationController
 
   def xchange
 
-    SendNotification.notification_email(@book,current_user)
+    SendNotification.notification_email(@book,current_user).deliver
     redirect_to @book, notice: 'Email was successfully sent. Wait for an answer. '
   end
 
