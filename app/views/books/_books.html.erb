@@ -1,29 +1,29 @@
-<h1>Your Books to Xchange</h1>
-<%= link_to 'Add book', new_book_path %>
-</br>
-</br>
-<table>
-  <tr>
-    <th>Fecha</th>
-    <th>Usuario</th>
-    <th>Nombre</th>
-    <th>Autor</th>
-    <th>Descripción</th>
-    <th>Imagen</th>
-  </tr>
+ <div class = container>
+  <%= link_to 'Add book', new_book_path %>
+  </br>
+  </br>
 
-  <% @book.each do |book| %>
-    <tr>
-      <td><%= book.updated_at.strftime("%Y-%m-%d") %></td>
-      <td><%= book.user_id %></td>
-      <td><%= book.name %></td>
-      <td><%= book.author %></td>
-      <td><%= book.descrption %></td>
-      <td><%= image_tag book.image.url(:thumb) %></td>
-      <td><%= link_to 'Show', book_path(book) %></td>
-      <td><%= link_to 'Edit', edit_book_path(book) %></td>
-      <td><%= link_to 'Destroy', book_path(book), method: :delete, data: { confirm: "are you sure?"} %></td>
-    </tr>
-  <%end%>
+  <div class="row">
+    <% @book.each do |book| %>
+    <div class="col-sm-2 col-md-2">
+      <div class="thumbnail">
+        <%= image_tag book.image.url(:medium) %>
+        <div class="caption">
+          <h4><%= book.name %></h4>
+          <h5><%= book.author %></h5>
+          <h5><%= book.user.name %></h5>
+          <p><%= book.descrption %></p>
+          <p>
+          <%= link_to 'Show', book_path(book), class: "btn btn-primary", role: "button" %>
+          <%= link_to 'Edit', edit_book_path(book), class: "btn btn-primary", role: "button" %>
+          <%= link_to 'Destroy', book_path(book), method: :delete, data: { confirm: "are you sure?"}, class: "btn btn-primary", role: "button" %>
+          <%= link_to 'Xchange', xchange_send_email_path, class: "btn btn-primary", role: "button" %>
+          </p>
+        </div>
+      </div>
+    </div>
+    <%end%>
+  </div>
+</div>
 
-</table>
+<!--:controller => "books", :action => "xchange_send_email", :id => @book.id-->

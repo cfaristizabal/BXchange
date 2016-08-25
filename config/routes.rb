@@ -1,16 +1,18 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'pages/home'
 
+  root 'pages#home'
+  get 'pages/home'
   get 'pages/about'
+
   get 'dashboard' => 'dashboard#dashboard'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
-  root 'pages#home'
+  # You can ha/8ve the root of your site routed with "root"
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -20,7 +22,7 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :books
-
+  get :xchange_send_email, to: 'books#xchange_send_email', as: :xchange_send_email
   # Example resource route with options:
   #   resources :products do
   #     member do
